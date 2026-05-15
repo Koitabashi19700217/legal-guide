@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>任意後見制度 手続きガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-light: #4a4a6a;
+    --paper: #f8f6f1;
+    --paper-warm: #f0ece3;
+    --accent: #8b6914;
+    --accent-light: #c4962a;
+    --rule: #d4c9b0;
+    --step-bg: #eee8d8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* 縦線の装飾 */
+  body::before {
+    content: '';
+    position: fixed;
+    left: 48px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--rule);
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 40px 80px 80px;
+    position: relative;
+  }
+
+  /* ヘッダー */
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+
+  .label {
+    font-size: 0.7em;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.2em;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    color: var(--ink-light);
+    font-size: 0.9em;
+  }
+
+  /* ステップフロー */
+  .flow {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .flow-step {
+    background: var(--step-bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 0.78em;
+    color: var(--ink-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .flow-step.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+
+  .flow-arrow {
+    color: var(--rule);
+    font-size: 0.9em;
+  }
+
+  /* セクション */
+  .section {
+    margin-bottom: 44px;
+    padding-left: 20px;
+    border-left: 3px solid var(--rule);
+    transition: border-color 0.2s;
+  }
+
+  .section:hover {
+    border-left-color: var(--accent-light);
+  }
+
+  .section-num {
+    font-size: 0.65em;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  p {
+    color: var(--ink-light);
+    font-size: 0.92em;
+    margin-bottom: 10px;
+  }
+
+  /* 費用テーブル */
+  .cost-box {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+
+  .cost-box h3 {
+    font-size: 0.8em;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .cost-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.88em;
+  }
+
+  .cost-item:last-child { border-bottom: none; }
+
+  .cost-label { color: var(--ink-light); }
+  .cost-value { 
+    font-weight: 500; 
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+  }
+
+  /* 書類リスト */
+  .doc-list {
+    list-style: none;
+    margin: 12px 0;
+  }
+
+  .doc-list li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 0.88em;
+    color: var(--ink-light);
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .doc-list li:last-child { border-bottom: none; }
+
+  .doc-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.6em;
+    top: 10px;
+  }
+
+  /* 参照文献 */
+  .references {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .references h3 {
+    font-size: 0.75em;
+    letter-spacing: 0.25em;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 8px;
+  }
+
+  .ref-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .ref-num {
+    font-size: 0.7em;
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 24px;
+    padding-top: 2px;
+  }
+
+  .ref-link {
+    font-size: 0.78em;
+    color: var(--ink-light);
+    text-decoration: none;
+    line-height: 1.5;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .ref-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent-light);
+  }
+
+  /* 印刷 */
+  @media print {
+    body::before { display: none; }
+    .section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="label">Legal Guide · 成年後見制度</div>
+    <h1>任意後見制度<br>手続きガイド</h1>
+    <p class="subtitle">判断能力が十分なうちに、将来に備える</p>
+  </header>
+
+  <!-- フロー -->
+  <div class="flow">
+    <div class="flow-step active">① 契約締結</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">② 登記</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">③ 判断能力低下</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">④ 監督人選任申立</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">⑤ 任意後見開始</div>
+  </div>
+
+  <!-- セクション1 -->
+  <div class="section">
+    <div class="section-num">STEP 01</div>
+    <h2>任意後見契約の締結</h2>
+    <p>本人が判断能力の十分なうちに、信頼できる人（任意後見受任者）を選び、公正証書で契約を締結します。受任者に特別な資格は不要で、本人が自由に選ぶことができます。</p>
+    <p>契約締結後、公証人の嘱託により法務局に任意後見契約が登記されます。</p>
+  </div>
+
+  <!-- セクション2 -->
+  <div class="section">
+    <div class="section-num">STEP 02</div>
+    <h2>複数の任意後見人を選任する場合</h2>
+    <p>複数の任意後見人を選任する方法は2通りあります。</p>
+    <p>① 1個の契約で複数人を選任し、権限の共同行使を定める方法（恣意的な権限行使を防ぐ効果）</p>
+    <p>② それぞれ別の契約を締結する方法</p>
+  </div>
+
+  <!-- セクション3 -->
+  <div class="section">
+    <div class="section-num">STEP 03</div>
+    <h2>任意後見監督人の選任申立て</h2>
+    <p>本人の判断能力が不十分になった段階で、申立権者が家庭裁判所に申立てを行います。</p>
+    <p><strong>申立権者：</strong>本人・配偶者・四親等内の親族・任意後見受任者</p>
+    <p><strong>申立先：</strong>本人の住所地を管轄する家庭裁判所</p>
+
+    <div class="cost-box">
+      <h3>申立費用</h3>
+      <div class="cost-item">
+        <span class="cost-label">申立手数料（収入印紙）</span>
+        <span class="cost-value">800円</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">登記手数料（収入印紙）</span>
+        <span class="cost-value">1,400円</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">連絡用郵便切手</span>
+        <span class="cost-value">実費</span>
+      </div>
+    </div>
+
+    <div class="cost-box">
+      <h3>必要書類</h3>
+      <ul class="doc-list">
+        <li>本人の戸籍謄本</li>
+        <li>任意後見契約公正証書の写し</li>
+        <li>本人の成年後見等に関する登記事項証明書</li>
+        <li>診断書</li>
+        <li>財産に関する資料</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- セクション4 -->
+  <div class="section">
+    <div class="section-num">STEP 04</div>
+    <h2>任意後見の開始</h2>
+    <p>家庭裁判所が任意後見監督人を選任する審判を行うと、任意後見契約が発効し、任意後見受任者が任意後見人となって事務を開始します。</p>
+    <p>任意後見監督人は、本人の心身の状態や生活・財産の状況、受任者の職業経歴などを総合的に判断して家庭裁判所が選任します。</p>
+  </div>
+
+  <!-- 参照文献 -->
+  <div class="references">
+    <h3>REFERENCES · 情報源</h3>
+    <div class="ref-grid">
+      <div class="ref-item">
+        <span class="ref-num">[1]</span>
+        <a class="ref-link" href="https://guardianship.mhlw.go.jp/personal/type/optional_guardianship/" target="_blank">任意後見制度とは（手続の流れ、費用）— 厚生労働省</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[2]</span>
+        <a class="ref-link" href="https://www.koshonin.gr.jp/notary/ow04" target="_blank">任意後見契約 — 日本公証人連合会</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[3]</span>
+        <a class="ref-link" href="https://kouken-pj.org/about/voluntary/flow/" target="_blank">任意後見の手続き — 後見プロジェクト</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[4]</span>
+        <a class="ref-link" href="https://tamagawa-account.com/column/%E4%BB%BB%E6%84%8F%E5%BE%8C%E8%A6%8B%E4%BA%BA%E9%81%B8%E4%BB%BB%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB%E3%81%A8%E7%9D%80%E7%9B%AE%E3%81%99%E3%81%B9%E3%81%8D%E9%87%8D%E8%A6%81%E3%81%AA%E3%83%9D%E3%82%A4/" target="_blank">任意後見人選任のルールと重要なポイント</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[5]</span>
+        <a class="ref-link" href="https://olao.jp/blog/ninikoken-tetsuzuki/" target="_blank">任意後見の手続きの流れ — olao</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[6]</span>
+        <a class="ref-link" href="https://www.anamachigroup.com/%E5%80%8B%E4%BA%BA%E5%90%91%E3%81%91/%E6%88%90%E5%B9%B4%E5%BE%8C%E8%A6%8B%E3%81%BB%E3%81%8B%E8%B2%A1%E7%94%A3%E7%AE%A1%E7%90%86/%E4%BB%BB%E6%84%8F%E5%BE%8C%E8%A6%8B-%E4%BB%BB%E6%84%8F%E5%BE%8C%E8%A6%8B%E5%A5%91%E7%B4%84%E3%81%AE%E7%B7%A0%E7%B5%90-%E4%BB%BB%E6%84%8F%E5%BE%8C%E8%A6%8B%E7%9B%A3%E7%9D%A3%E4%BA%BA%E9%81%B8%E4%BB%BB%E7%94%B3%E3%81%97%E7%AB%8B%E3%81%A6-%E4%BB%BB%E6%84%8F%E5%BE%8C%E8%A6%8B%E7%B5%82%E4%BA%86-%E3%81%AE%E6%B5%81%E3%82%8C/" target="_blank">任意後見の流れ — あなまちグループ</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[7]</span>
+        <a class="ref-link" href="https://oharashu.com/column/%E4%BB%BB%E6%84%8F%E5%BE%8C%E8%A6%8B%E4%BA%BA%E3%81%AE%E9%81%B8%E4%BB%BB%E3%81%A7%E8%A6%8B%E3%82%8B%E3%81%B9%E3%81%8D%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%81%A8%E3%81%AF%EF%BC%9F-%E3%81%B5%E3%81%95/" target="_blank">任意後見人の選任で見るべきポイント</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[8]</span>
+        <a class="ref-link" href="https://www.courts.go.jp/saiban/syurui/syurui_kazi/kazi_06_04/index.html" target="_blank">任意後見監督人選任 — 裁判所</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[9]</span>
+        <a class="ref-link" href="https://www.courts.go.jp/nagoya-f/vc-files/nagoya-f/file/04.pdf" target="_blank">任意後見監督人選任申立ての手引き（PDF）</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[10]</span>
+        <a class="ref-link" href="https://legal-support.or.jp/general/support/arbitrarily/" target="_blank">任意後見制度 — 公益社団法人 成年後見センター</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>土地の無償貸与による節税 ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-light: #4a4a6a;
+    --paper: #f8f6f1;
+    --paper-warm: #f0ece3;
+    --accent: #8b6914;
+    --accent-light: #c4962a;
+    --accent-red: #8b2914;
+    --accent-green: #1a5c38;
+    --rule: #d4c9b0;
+    --green-bg: #eef5f0;
+    --blue-bg: #eef2f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    left: 48px; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--rule);
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 40px 80px 80px;
+    position: relative;
+  }
+
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+
+  .label {
+    font-size: 0.7em;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.2em;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .subtitle { color: var(--ink-light); font-size: 0.9em; }
+
+  /* 大セクション */
+  .section {
+    margin-bottom: 48px;
+    padding-left: 20px;
+    border-left: 3px solid var(--rule);
+    transition: border-color 0.2s;
+  }
+  .section:hover { border-left-color: var(--accent-light); }
+
+  .section-num {
+    font-size: 0.65em;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  h3 {
+    font-size: 0.92em;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 20px 0 10px;
+    padding-left: 10px;
+    border-left: 2px solid var(--accent-light);
+  }
+
+  p { color: var(--ink-light); font-size: 0.92em; margin-bottom: 10px; }
+
+  /* 比較テーブル */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.85em;
+  }
+
+  .compare-table th {
+    background: var(--ink);
+    color: #f0ece4;
+    padding: 10px 14px;
+    font-weight: 500;
+    font-family: 'Noto Serif JP', serif;
+    text-align: left;
+  }
+
+  .compare-table th:first-child { width: 30%; }
+
+  .compare-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-light);
+    vertical-align: top;
+  }
+
+  .compare-table tr:nth-child(even) td { background: var(--paper-warm); }
+
+  .compare-table .label-cell {
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 0.9em;
+  }
+
+  /* メリットボックス */
+  .merit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .merit-card {
+    background: var(--green-bg);
+    border: 1px solid #b8d8c0;
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+
+  .merit-card h4 {
+    font-size: 0.78em;
+    font-weight: 500;
+    color: var(--accent-green);
+    margin-bottom: 6px;
+    letter-spacing: 0.1em;
+  }
+
+  .merit-card p {
+    font-size: 0.82em;
+    color: var(--ink-light);
+    margin: 0;
+  }
+
+  /* 評価ボックス */
+  .eval-box {
+    background: var(--blue-bg);
+    border: 1px solid #b8c8e0;
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin: 16px 0;
+  }
+
+  .eval-box h3 {
+    border-left: none;
+    padding-left: 0;
+    font-size: 0.8em;
+    letter-spacing: 0.15em;
+    color: #1a3a6a;
+    margin: 0 0 12px;
+  }
+
+  .eval-item {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #c8d8ee;
+    font-size: 0.85em;
+    align-items: flex-start;
+  }
+  .eval-item:last-child { border-bottom: none; }
+
+  .eval-who {
+    color: #1a3a6a;
+    font-weight: 500;
+    min-width: 120px;
+    font-size: 0.9em;
+  }
+
+  .eval-formula {
+    color: var(--ink-light);
+    font-family: 'Noto Serif JP', serif;
+  }
+
+  /* 注意ボックス */
+  .caution-box {
+    background: #fdf3e3;
+    border: 1px solid #e0c888;
+    border-left: 4px solid #c4821a;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 0.85em;
+    color: var(--ink-light);
+  }
+
+  .caution-box strong { color: #8b5a14; }
+
+  /* リスト */
+  .plain-list { list-style: none; margin: 10px 0; }
+  .plain-list li {
+    padding: 6px 0 6px 18px;
+    position: relative;
+    font-size: 0.88em;
+    color: var(--ink-light);
+    border-bottom: 1px dashed var(--rule);
+  }
+  .plain-list li:last-child { border-bottom: none; }
+  .plain-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.6em;
+    top: 10px;
+  }
+
+  /* 参照文献 */
+  .references {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+  .references h3 {
+    font-size: 0.75em;
+    letter-spacing: 0.25em;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+    font-weight: 500;
+    border-left: none;
+    padding-left: 0;
+  }
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 8px;
+  }
+  .ref-item { display: flex; gap: 10px; align-items: flex-start; }
+  .ref-num {
+    font-size: 0.7em;
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 28px;
+    padding-top: 2px;
+  }
+  .ref-link {
+    font-size: 0.78em;
+    color: var(--ink-light);
+    text-decoration: none;
+    line-height: 1.5;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .ref-link:hover { color: var(--accent); border-bottom-color: var(--accent-light); }
+
+  @media print {
+    body::before { display: none; }
+    .section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="label">Legal Guide · 土地節税</div>
+    <h1>土地の無償貸与<br>節税ガイド</h1>
+    <p class="subtitle">使用貸借（個人間）と無償返還届出書（個人・法人間）の2つのアプローチ</p>
+  </header>
+
+  <!-- 比較早見表 -->
+  <div class="section">
+    <div class="section-num">OVERVIEW</div>
+    <h2>2つのアプローチ比較</h2>
+
+    <table class="compare-table">
+      <tr>
+        <th></th>
+        <th>使用貸借（個人間）</th>
+        <th>無償返還届出書（個人・法人間）</th>
+      </tr>
+      <tr>
+        <td class="label-cell">対象</td>
+        <td>親子などの個人間</td>
+        <td>個人と同族会社など法人間</td>
+      </tr>
+      <tr>
+        <td class="label-cell">贈与税</td>
+        <td>課税なし</td>
+        <td>届出書提出で認定課税を回避</td>
+      </tr>
+      <tr>
+        <td class="label-cell">相続税評価</td>
+        <td>自用地（更地）評価のまま</td>
+        <td>自用地評価額×80%（賃貸借の場合）</td>
+      </tr>
+      <tr>
+        <td class="label-cell">地代</td>
+        <td>固定資産税相当以下でOK</td>
+        <td>固定資産税の2〜3倍以上が必要</td>
+      </tr>
+      <tr>
+        <td class="label-cell">節税効果</td>
+        <td>所得分散・小規模宅地特例が主</td>
+        <td>土地評価額20%減＋認定課税回避</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- セクション1: 使用貸借 -->
+  <div class="section">
+    <div class="section-num">SECTION 01</div>
+    <h2>使用貸借契約による節税（個人間）</h2>
+    <p>親子間などで土地を無償または固定資産税程度の賃料で貸す場合、使用貸借契約となり贈与税の課税関係は生じません。ただし、貸主の相続時には土地は自用地（更地）として評価されるため、相続税評価額は減額されません。</p>
+
+    <h3>親の土地で子が賃貸経営をする場合</h3>
+    <p>子が親の土地を使用貸借で借り、その上に賃貸建物を建てる場合、以下の節税効果があります。</p>
+    <ul class="plain-list">
+      <li>小規模宅地等の特例（貸付事業用宅地等）が適用され、最大50%の評価減が可能</li>
+      <li>賃貸収入は子の所得となるため、相続財産の膨張を防げる</li>
+      <li>所得分散による税負担軽減効果も期待できる</li>
+    </ul>
+
+    <h3>使用貸借でも貸家建付地評価が認められるケース</h3>
+    <p>親から子へ建物を贈与し土地を無償貸与した場合でも、借家人が変わらなければ貸家建付地評価が認められることがあります。</p>
+    <div class="eval-box">
+      <h3>貸家建付地評価の計算式</h3>
+      <div class="eval-item">
+        <span class="eval-who">評価額</span>
+        <span class="eval-formula">自用地評価額 ×（1 − 借地権割合 × 借家権割合 × 賃貸割合）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- セクション2: 無償返還届出書 -->
+  <div class="section">
+    <div class="section-num">SECTION 02</div>
+    <h2>土地の無償返還に関する届出書（個人・法人間）</h2>
+    <p>個人が同族会社などの法人に土地を貸す場合、権利金や相当の地代を収受しないと借地権の認定課税が発生します。「土地の無償返還に関する届出書」を提出することで、これを回避できます。</p>
+
+    <div class="merit-grid">
+      <div class="merit-card">
+        <h4>① 権利金の認定課税回避</h4>
+        <p>法人に対する借地権の受贈益課税を回避できる。</p>
+      </div>
+      <div class="merit-card">
+        <h4>② 相続税評価額の減額</h4>
+        <p>賃貸借契約の場合、土地評価額が自用地の80%に。</p>
+      </div>
+      <div class="merit-card">
+        <h4>③ 地主の所得税負担軽減</h4>
+        <p>低額の地代設定が可能になる。</p>
+      </div>
+      <div class="merit-card">
+        <h4>④ 評価の一体性が保たれる</h4>
+        <p>地主個人と法人の株式評価を合わせると100%顕現し課税の公平が保たれる。</p>
+      </div>
+    </div>
+
+    <h3>評価の仕組み（無償返還届出書提出後）</h3>
+    <div class="eval-box">
+      <h3>相続税評価の計算</h3>
+      <div class="eval-item">
+        <span class="eval-who">地主側（土地）</span>
+        <span class="eval-formula">自用地評価額 × 80%</span>
+      </div>
+      <div class="eval-item">
+        <span class="eval-who">法人側（株式評価）</span>
+        <span class="eval-formula">純資産価額に自用地評価額の20%相当を借地権として算入</span>
+      </div>
+    </div>
+
+    <div class="caution-box">
+      <strong>⚠ 重要な注意点</strong><br>
+      賃貸借と認められるには固定資産税の2〜3倍以上の地代設定が必要。相続開始直前の意図的な契約変更は課税庁から指摘される可能性あり。届出書の提出期限は「遅滞なく」とされているが、税務調査後でも認められることがある。
+    </div>
+  </div>
+
+  <!-- 参照文献 -->
+  <div class="references">
+    <h3>REFERENCES · 情報源</h3>
+    <div class="ref-grid">
+      <div class="ref-item">
+        <span class="ref-num">[1]</span>
+        <a class="ref-link" href="https://abeoffice.or.jp/blog/kojin-kojin-tochi-rent" target="_blank">土地を無料で貸付けた場合の税務上の注意点（個人間）</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[2]</span>
+        <a class="ref-link" href="https://chester-tax.com/encyclopedia/6480.html" target="_blank">土地の無償返還に関する届出書とは？— チェスター</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[3]</span>
+        <a class="ref-link" href="https://www.needs-p.jp/column-lease-land-for-free/" target="_blank">土地の使用貸借｜無償で土地を貸すときに知っておくべきこと</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[4]</span>
+        <a class="ref-link" href="https://chester-tax.com/encyclopedia/17591.html" target="_blank">使用貸借は貸主死亡で相続される―相続税はいくらかかる？</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[5]</span>
+        <a class="ref-link" href="https://magazine.zennichi.or.jp/inheritance/12973" target="_blank">親子間における不動産の使用貸借と相続税・贈与税</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[6]</span>
+        <a class="ref-link" href="https://osd-souzoku.jp/tintaikeiei/" target="_blank">親の土地で子が賃貸経営をするのは税金対策になる？</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[7]</span>
+        <a class="ref-link" href="https://souzoku.taxtakeda.com/blog/kasiyatatetuke/" target="_blank">使用貸借でも貸家建付地評価できる？相続税対策で差がつく</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[8]</span>
+        <a class="ref-link" href="https://www.tax-sos.co.jp/news_tax/1078.html" target="_blank">無償返還の届出で節税</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[9]</span>
+        <a class="ref-link" href="https://chester-tax.com/academy/blog/hyouka/free-return-5875" target="_blank">無償返還届出書を提出している場合の土地の相続税評価</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[10]</span>
+        <a class="ref-link" href="https://www.zennichi.or.jp/law_faq/%E7%84%A1%E5%84%9F%E8%BF%94%E9%82%84%E5%B1%8A%E5%87%BA%E6%9B%B8%E3%82%92%E6%8F%90%E5%87%BA%E3%81%97%E5%BF%98%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E5%9C%9F%E5%9C%B0%E3%81%AE%E8%A9%95%E4%BE%A1/" target="_blank">無償返還届出書を提出し忘れている土地の評価</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[11]</span>
+        <a class="ref-link" href="https://www.tactnet.com/news/2023/No.910.html" target="_blank">法人への土地の賃貸借に際し無償返還の届出書を提出した場合</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[12]</span>
+        <a class="ref-link" href="https://www.nta.go.jp/law/tsutatsu/kobetsu/sozoku/850605/01.htm" target="_blank">相当の地代を支払っている場合等の借地権等についての相続税 — 国税庁</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[13]</span>
+        <a class="ref-link" href="https://www.zennichi.or.jp/law_faq/%E8%B3%83%E8%B2%B8%E5%80%9F%E5%A5%91%E7%B4%84%E3%81%AE%E9%9A%9B%E3%81%AB%E7%84%A1%E5%84%9F%E8%BF%94%E9%82%84%E3%81%AE%E5%B1%8A%E5%87%BA%E6%9B%B8%E3%81%8C%E6%8F%90%E5%87%BA%E3%81%95%E3%82%8C%E3%81%9F/" target="_blank">賃貸借契約の際に無償返還の届出書が提出された土地の相続税評価</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

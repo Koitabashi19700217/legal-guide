@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>相続関連 最新ニュース 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-light: #4a4a6a;
+    --paper: #f8f6f1;
+    --paper-warm: #f0ece3;
+    --accent: #8b6914;
+    --accent-light: #c4962a;
+    --accent-red: #8b2914;
+    --rule: #d4c9b0;
+    --step-bg: #eee8d8;
+    --alert-bg: #fdf3e3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    left: 48px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--rule);
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 40px 80px 80px;
+    position: relative;
+  }
+
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+
+  .label {
+    font-size: 0.7em;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.2em;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    color: var(--ink-light);
+    font-size: 0.9em;
+  }
+
+  /* アラートバナー */
+  .alert {
+    background: var(--alert-bg);
+    border: 1px solid var(--accent-light);
+    border-left: 4px solid var(--accent-red);
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin-bottom: 40px;
+    font-size: 0.85em;
+    color: var(--ink);
+  }
+
+  .alert strong {
+    color: var(--accent-red);
+    font-weight: 500;
+  }
+
+  /* セクション */
+  .section {
+    margin-bottom: 44px;
+    padding-left: 20px;
+    border-left: 3px solid var(--rule);
+    transition: border-color 0.2s;
+  }
+
+  .section:hover {
+    border-left-color: var(--accent-light);
+  }
+
+  .section-num {
+    font-size: 0.65em;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  p {
+    color: var(--ink-light);
+    font-size: 0.92em;
+    margin-bottom: 10px;
+  }
+
+  /* インフォボックス */
+  .info-box {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+
+  .info-box h3 {
+    font-size: 0.8em;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.88em;
+    gap: 16px;
+  }
+
+  .info-item:last-child { border-bottom: none; }
+  .info-label { color: var(--ink-light); flex: 1; }
+  .info-value {
+    font-weight: 500;
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* タイムラインリスト */
+  .timeline {
+    list-style: none;
+    margin: 12px 0;
+  }
+
+  .timeline li {
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--rule);
+    font-size: 0.88em;
+    align-items: flex-start;
+  }
+
+  .timeline li:last-child { border-bottom: none; }
+
+  .tl-date {
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 120px;
+    font-size: 0.9em;
+  }
+
+  .tl-text { color: var(--ink-light); }
+
+  /* 参照文献 */
+  .references {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .references h3 {
+    font-size: 0.75em;
+    letter-spacing: 0.25em;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 8px;
+  }
+
+  .ref-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .ref-num {
+    font-size: 0.7em;
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 28px;
+    padding-top: 2px;
+  }
+
+  .ref-link {
+    font-size: 0.78em;
+    color: var(--ink-light);
+    text-decoration: none;
+    line-height: 1.5;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .ref-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent-light);
+  }
+
+  @media print {
+    body::before { display: none; }
+    .section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="label">Inheritance News · 2026年最新動向</div>
+    <h1>相続関連<br>最新ニュースまとめ</h1>
+    <p class="subtitle">税制改正・登記義務化・国庫帰属制度の最新状況</p>
+  </header>
+
+  <!-- アラート -->
+  <div class="alert">
+    <strong>⚠ 実務への影響大：</strong>2027年1月1日から貸付用不動産の時価評価が適用開始。また2026年4月1日より住所変更登記が義務化済み。
+  </div>
+
+  <!-- セクション1 -->
+  <div class="section">
+    <div class="section-num">TOPIC 01</div>
+    <h2>2026年度税制改正の重要変更</h2>
+    <p>相続開始前5年以内に取得した賃貸用不動産について、従来の路線価評価から時価（通常の取引価格）による評価に変更されます。不動産購入による相続税の圧縮効果が大幅に制限されます。</p>
+    <p>不動産小口化商品も取得時期に関わらず原則時価評価となります。</p>
+
+    <div class="info-box">
+      <h3>改正スケジュール</h3>
+      <div class="info-item">
+        <span class="info-label">貸付用不動産の時価評価適用開始</span>
+        <span class="info-value">2027年1月1日〜</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">教育資金一括贈与の非課税措置</span>
+        <span class="info-value">2026年3月31日終了</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">事業用資産・非上場株式の納税猶予</span>
+        <span class="info-value">特例承継計画提出期限を2年6ヶ月延長</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- セクション2 -->
+  <div class="section">
+    <div class="section-num">TOPIC 02</div>
+    <h2>相続登記・住所変更登記の義務化</h2>
+
+    <ul class="timeline">
+      <li>
+        <span class="tl-date">2024年4月〜</span>
+        <span class="tl-text">相続登記の義務化開始。相続を知った日から3年以内の登記が必要。</span>
+      </li>
+      <li>
+        <span class="tl-date">2026年2月2日〜</span>
+        <span class="tl-text">所有不動産記録証明制度が開始。相続時の不動産把握が円滑に。</span>
+      </li>
+      <li>
+        <span class="tl-date">2026年4月1日〜</span>
+        <span class="tl-text">住所変更登記の義務化。変更から2年以内の登記が必要。義務化前の住所変更も対象。</span>
+      </li>
+      <li>
+        <span class="tl-date">2028年3月末まで</span>
+        <span class="tl-text">2026年4月1日より前の住所変更分の手続き期限。</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- セクション3 -->
+  <div class="section">
+    <div class="section-num">TOPIC 03</div>
+    <h2>相続土地国庫帰属制度の利用状況</h2>
+    <p>2023年4月27日に開始。相続または遺贈で取得した土地を一定の要件のもとで国に引き取ってもらえる制度。約1年9ヶ月で1,300件以上、約1年で申請が2,000件超と順調に利用が拡大しています。</p>
+
+    <div class="info-box">
+      <h3>費用・負担</h3>
+      <div class="info-item">
+        <span class="info-label">審査手数料</span>
+        <span class="info-value">14,000円／筆</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">承認後の負担金</span>
+        <span class="info-value">10年分の管理費相当額</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- セクション4 -->
+  <div class="section">
+    <div class="section-num">TOPIC 04</div>
+    <h2>相続税の申告・調査動向</h2>
+    <p>国税庁が令和6年分の相続税申告事績を発表。相続税申告件数が過去最高を更新しました。</p>
+    <p>AIを活用した相続税調査の強化が本格導入されており、申告漏れへの対策が進んでいます。</p>
+  </div>
+
+  <!-- セクション5 -->
+  <div class="section">
+    <div class="section-num">TOPIC 05</div>
+    <h2>金融機関の動き</h2>
+    <p>宮城県内10金融機関が相続手続きを共通化するなど、地域金融機関間での業務効率化が進展。遺言代用信託や遺贈寄付の枠組みも広がりを見せており、金融機関と自治体・団体との連携が活発化しています。</p>
+  </div>
+
+  <!-- 参照文献 -->
+  <div class="references">
+    <h3>REFERENCES · 情報源</h3>
+    <div class="ref-grid">
+      <div class="ref-item">
+        <span class="ref-num">[1]</span>
+        <a class="ref-link" href="https://www.nikkinonline.com/tag/%E7%9B%B8%E7%B6%9A" target="_blank">相続のニュース一覧 — 日本金融新聞</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[2]</span>
+        <a class="ref-link" href="https://souzokuplus.com/columns/k-news/" target="_blank">相続ニュースの記事一覧 — 相続プラス</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[3]</span>
+        <a class="ref-link" href="https://chester-tax.com/column/" target="_blank">チェスターNEWS — 相続税専門税理士</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[4]</span>
+        <a class="ref-link" href="https://inheritance-tax-paint.com/tax-reform/2026/" target="_blank">2026年度税制改正：貸付用不動産の相続税評価</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[5]</span>
+        <a class="ref-link" href="https://www.yamada-partners.jp/tax-topics/zeikai2026-documents" target="_blank">2026年度税制改正のポイントと解説 — 山田&パートナーズ</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[6]</span>
+        <a class="ref-link" href="https://go.sbisec.co.jp/consult/inheritance_column/column_detail_13839.html" target="_blank">令和8年度税制改正大綱【相続税・贈与税】— SBI証券</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[7]</span>
+        <a class="ref-link" href="https://souzoku-zouyo.com/column_sinkoku46.html" target="_blank">令和8年度税制改正大綱（速報）</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[8]</span>
+        <a class="ref-link" href="https://koyano-cpa.gr.jp/yasashii-sozoku/column/5454/" target="_blank">2026年度税制改正による相続税・贈与税の変更点</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[9]</span>
+        <a class="ref-link" href="https://www.moj.go.jp/MINJI/minji05_00687.html" target="_blank">住所等変更登記の義務化特設ページ — 法務省</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[10]</span>
+        <a class="ref-link" href="https://www.meigi-henkou.jp/16130337523182" target="_blank">相続登記の義務化｜罰則10万円を避ける方法</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[11]</span>
+        <a class="ref-link" href="https://protectstance.com/column/20260427/inheritance033" target="_blank">2026年4月に住所変更登記が義務化！相続への影響</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[12]</span>
+        <a class="ref-link" href="https://www.gov-online.go.jp/article/202512/entry-10431.html" target="_blank">不動産の相続登記義務化！所有不動産を確認する新制度</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[13]</span>
+        <a class="ref-link" href="https://www.moj.go.jp/MINJI/minji05_00454.html" target="_blank">相続土地国庫帰属制度について — 法務省</a>
+      </div>
+      <div class="ref-item">
+        <span class="ref-num">[14]</span>
+        <a class="ref-link" href="https://www.shiho-shoshi.or.jp/activity/souzokukokko/" target="_blank">相続土地国庫帰属制度｜司法書士会</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
